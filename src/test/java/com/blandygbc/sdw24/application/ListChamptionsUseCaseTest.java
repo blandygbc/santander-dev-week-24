@@ -13,7 +13,7 @@ import com.blandygbc.sdw24.domain.model.ChampionRec;
 public class ListChamptionsUseCaseTest {
 
     @Autowired
-    private ListChamptionsUseCase listChamptionsUseCase;
+    private ListChampionsUseCase listChamptionsUseCase;
 
     @Test
     void testFindAll() {
