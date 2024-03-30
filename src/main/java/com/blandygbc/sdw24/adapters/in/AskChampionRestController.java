@@ -1,5 +1,6 @@
 package com.blandygbc.sdw24.adapters.in;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +16,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/champions")
 public record AskChampionRestController(AskChampionsUseCase useCase) {
 
+    @CrossOrigin("http://127.0.0.1:5500")
     @PostMapping("/{championId}/ask")
     public AskChampionResponse findAllChampions(
-            @PathVariable Long championId,
+            @PathVariable("championId") Long championId,
             @RequestBody AskChampionRequest request) {
         String answer = useCase.askChampion(championId, request.question());
         return new AskChampionResponse(answer);
